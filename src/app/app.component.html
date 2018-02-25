@@ -1,3 +1,13 @@
-<favorite [is-favorite]='post.isFavorite' (change)="onFavoriteChange($event)"></favorite>
-<cources></cources>
-<app-author></app-author>
+<!-- <favorite [is-favorite]='post.isFavorite' (change)="onFavoriteChange($event)"></favorite> -->
+<!-- <cources></cources>
+<app-author></app-author> -->
+<!-- <bootstrap-panel>
+  <ng-container class="heading">
+    <h2>Heading</h2>
+  </ng-container>
+  <div class="body">
+    <p>Some ng-content here...</p>
+  </div>
+</bootstrap-panel> -->
+
+<like [is-liked]='tweet.isLiked' [like-count]=tweet.likeCount></like>

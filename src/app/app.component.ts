@@ -9,7 +9,11 @@ export class AppComponent {
     title: "The book of Kusha",
     isFavorite: true
   }
-  onFavoriteChange(evetArgs){
+  onFavoriteChange(evetArgs) {
     console.log('favorite changed', evetArgs);
+  }
+  tweet = {
+    likeCount: 10,
+    isLiked: true
   }
 }

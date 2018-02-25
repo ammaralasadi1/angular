@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CourceComponent } from './cource/cource.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { AuthorComponent } from './author/author.component';
+import { PanelComponent } from './panel/panel.component';
+import { LikeComponent } from './like/like.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { AuthorComponent } from './author/author.component';
     CoursesComponent,
     CourceComponent,
     AuthorComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    PanelComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule
