@@ -3,11 +3,9 @@ import {AuthorServiceService} from './author-service.service';
 import {CoursesService} from './cources.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
-
 import { AppComponent } from './app.component';
 import { CourceComponent } from './cource/cource.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 import { AuthorComponent } from './author/author.component';
 
 
@@ -16,7 +14,8 @@ import { AuthorComponent } from './author/author.component';
     AppComponent,
     CoursesComponent,
     CourceComponent,
-    AuthorComponent
+    AuthorComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule

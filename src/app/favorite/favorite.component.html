@@ -1,0 +1,4 @@
+<a class="btn btn-lg btn-primary text-white" [class.btn-danger]="toggle" (click)="changeFav($event)" >AddFav</a>
+<span class="glypicon "></span>
+
+<span class="glyphicon" [class.glyphicon-star]="isFavourite" [class.glyphicon-star-empty]="!isFavourite" (click)="changeFav()" ></span>

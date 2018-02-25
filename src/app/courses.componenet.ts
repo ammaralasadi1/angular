@@ -9,15 +9,23 @@ import { Component } from '@angular/core';
     {{ course }}
     </li>
   </ul>
-  <button class="btn btn-primary"type="button" name="button" [class.active]="isActive">Save</button>
+  <div (click)="onDIvClick()">
+  <button class="btn btn-primary" type="button" (click)="onSave($event)">Save</button>
+  </div>
   `
 
 
 })
 export class CoursesComponent {
   title = 'The book of Mormon';
-  isActive = false;
   courses;
+  onSave($event){
+    $event.stopPropagation();
+    console.log("btn clicked", $event)
+  }
+  onDIvClick(){
+    console.log('div clicked');
+  }
   constructor(service: CoursesService) {
     this.courses = service.getCources();
 
