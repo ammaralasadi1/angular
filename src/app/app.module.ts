@@ -1,4 +1,5 @@
 import {CoursesComponent} from './courses.componenet';
+import {CoursesService} from './cources.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -17,7 +18,9 @@ import { CourceComponent } from './cource/cource.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    CoursesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
