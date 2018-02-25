@@ -9,14 +9,17 @@ import { Component } from '@angular/core';
     {{ course }}
     </li>
   </ul>
+  <button class="btn btn-primary"type="button" name="button" [class.active]="isActive">Save</button>
   `
 
 
 })
 export class CoursesComponent {
   title = 'The book of Mormon';
+  isActive = false;
   courses;
   constructor(service: CoursesService) {
     this.courses = service.getCources();
+
   }
 }
