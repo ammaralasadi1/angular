@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-cource',
+  selector: 'cource',
   templateUrl: './cource.component.html',
   styleUrls: ['./cource.component.css']
 })

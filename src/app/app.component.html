@@ -1,13 +1,38 @@
-<!-- <favorite [is-favorite]='post.isFavorite' (change)="onFavoriteChange($event)"></favorite> -->
-<!-- <cources></cources>
-<app-author></app-author> -->
-<!-- <bootstrap-panel>
+ <!-- <favorite [is-favorite]='post.isFavorite' (change)="onFavoriteChange($event)"></favorite>
+<cources></cources>
+<app-author></app-author>
+<bootstrap-panel>
   <ng-container class="heading">
     <h2>Heading</h2>
   </ng-container>
   <div class="body">
     <p>Some ng-content here...</p>
   </div>
-</bootstrap-panel> -->
+</bootstrap-panel>
 
 <like [is-liked]='tweet.isLiked' [like-count]=tweet.likeCount></like>
+<div [hidden]="cources.length == 0">
+  List of cources
+</div>
+<div [hidden]="cources.length > 0">
+  No cources yest
+</div>
+ <ul class="nav nav-pills">
+  <li [class.active]="viewMode =='map' "><a (click)=" viewMode =='map' ">Map</a></li>
+  <li [class.active]="viewMode =='list' "><a (click)=" viewMode =='list' ">List</a></li>
+</ul>
+<br>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Conetent</div>
+  <div *ngSwitchDefault>Nada!</div>
+</div> -->
+
+<button (click)="loadCources()">Load</button>
+
+<ul>
+  <li *ngFor="let cource of cources; trackBy: trackCource();">
+  {{cource.name}}
+  <button (click)="onChange(cource)">remove</button>
+  </li>
+</ul>
