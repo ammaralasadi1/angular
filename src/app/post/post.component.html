@@ -1,0 +1,18 @@
+<input
+(keyup.enter)="createPost(input)" #input
+type="text"
+name="Submit"
+value=""
+class="form-contorl"
+>
+
+<ul class="list-group">
+
+  <li class="list-group-item" *ngFor="let post of posts">
+    {{post.title}}
+    <div class="">
+      <button type="button" class="btn btn-primary btn-md" (click)="updatePost(post)">Updat post</button>
+      <button type="button" class="btn btn-secondary btn-md" (click)="deletPost(post)">Delete</button>
+    </div>
+  </li>
+</ul>

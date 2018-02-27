@@ -28,11 +28,19 @@
   <div *ngSwitchDefault>Nada!</div>
 </div> -->
 
-<button (click)="loadCources()">Load</button>
+<!-- <button (click)="loadCources()">Load</button>
 
 <ul>
   <li *ngFor="let cource of cources; trackBy: trackCource();">
   {{cource.name}}
   <button (click)="onChange(cource)">remove</button>
   </li>
-</ul>
+</ul> -->
+
+<!--
+<button
+[ngStyle]="{'color': canSAve ? 'blue':'gray'}"
+>Save
+</button> -->
+
+<post></post>
