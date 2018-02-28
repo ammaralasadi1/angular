@@ -8,7 +8,7 @@ import { NotFoundError } from '../common/not-found-error';
 import { BadInput } from '../common/bad-input';
 @Injectable()
 export class PostService {
-  private url = 'https://jsonplaceholder.typicode.com/posts';
+  private url = 'https://jdsonplaceholder.typicode.com/posts';
 
   constructor(private http: Http) { }
 

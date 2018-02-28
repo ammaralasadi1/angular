@@ -4,6 +4,7 @@ import { PostService } from '../services/post.service';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
 import { BadInput } from '../common/bad-input';
+import 'rxjs/add/observable/throw';
 
 @Component({
   selector: 'post',
@@ -37,7 +38,7 @@ export class PostComponent implements OnInit {
         if (error instanceof BadInput) {
           // this.form.setErrors(error.originalError);
         } else {
-          alert ('unexpected error happened');
+          throw error;
         }
       });
   }
@@ -46,14 +47,11 @@ export class PostComponent implements OnInit {
     this.service.updatePost(post)
       .subscribe(response => {
         console.log(response.json())
-      },
-      error => {
-        alert('Un expected eroor occourd');
-      })
+      });
   }
 
   deletePost(post) {
-    this.service.deletePost(post)
+    this.service.deletePost(990)
       .subscribe(response => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
@@ -63,7 +61,7 @@ export class PostComponent implements OnInit {
         if (error instanceof NotFoundError)
           alert('This post has already been deleted');
          else {
-          alert('eroor occourd!')
+          throw error;
         }
       })
   }
