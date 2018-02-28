@@ -11,6 +11,7 @@ import { AuthorComponent } from './author/author.component';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
 import { PostComponent } from './post/post.component';
+import { PostService } from './services/post.service';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PostComponent } from './post/post.component';
   ],
   providers: [
     CoursesService,
-    AuthorServiceService
+    AuthorServiceService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
