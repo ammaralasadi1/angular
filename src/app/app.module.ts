@@ -10,9 +10,9 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { AuthorComponent } from './author/author.component';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
-import { PostComponent } from './post/post.component';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { PostsComponent } from './post/post.component';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { AppErrorHandler } from './common/app-error-handler';
     FavoriteComponent,
     PanelComponent,
     LikeComponent,
-    PostComponent
+    PostsComponent
   ],
   imports: [
     BrowserModule,

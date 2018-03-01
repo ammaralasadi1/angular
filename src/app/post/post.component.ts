@@ -1,69 +1,62 @@
+import { NotFoundError } from './../common/not-found-error';
+import { BadInput } from './../common/bad-input';
+import { AppError } from './../common/app-error';
+import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { PostService } from '../services/post.service';
-import { AppError } from '../common/app-error';
-import { NotFoundError } from '../common/not-found-error';
-import { BadInput } from '../common/bad-input';
-import 'rxjs/add/observable/throw';
 
 @Component({
-  selector: 'post',
+  selector: 'posts',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-export class PostComponent implements OnInit {
+export class PostsComponent implements OnInit {
   posts: any[];
-
 
   constructor(private service: PostService) {
   }
 
   ngOnInit() {
-    this.service.getPost()
-      .subscribe(response => {
-        this.posts = response.json();
-      }, error => {
-        alert('Un expected eroor occourd');
-      });
+    this.service.getAll()
+      .subscribe(posts => this.posts = posts);
   }
+
   createPost(input: HTMLInputElement) {
-    let post: any = { title: input.value };
-    input.value = " "
-    this.service.createPost(post)
-      .subscribe(response => {
-        post.id = response.json().id;
-        this.posts.splice(0, 0, post)
-      },
-      (error: AppError) => {
-        if (error instanceof BadInput) {
-          // this.form.setErrors(error.originalError);
-        } else {
-          throw error;
-        }
-      });
+    let post = { title: input.value };
+    input.value = '';
+
+    this.service.create(post)
+      .subscribe(
+        newPost => {
+          post['id'] = newPost.id;
+            this.posts.splice(0, 0, post);
+          },
+          (error: AppError) => {
+            if (error instanceof BadInput) {
+              // this.form.setErrors(error.originalError);
+            }
+            else throw error;
+          });
   }
 
   updatePost(post) {
-    this.service.updatePost(post)
-      .subscribe(response => {
-        console.log(response.json())
-      });
+    this.service.update(post)
+      .subscribe(
+        updatedPost => {
+          console.log(updatedPost);
+        });
   }
 
   deletePost(post) {
-    this.service.deletePost(post)
-      .subscribe(response => {
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-        console.log(index)
-      },
-      (error: AppError) => {
-        if (error instanceof NotFoundError)
-          alert('This post has already been deleted');
-         else {
-          throw error;
-        }
-      })
+    this.service.delete(post.id)
+      .subscribe(
+        () => {
+          let index = this.posts.indexOf(post);
+          this.posts.splice(index, 1);
+        },
+        (error: AppError) => {
+          if (error instanceof NotFoundError)
+            alert('This post has already been deleted.');
+          else throw error;
+        });
   }
-
 }
