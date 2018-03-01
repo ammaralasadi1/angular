@@ -7,7 +7,10 @@
     class="list-group-item">
     <button
       (click)="deletePost(post)"
-      class="btn btn-default btn-sm">Delete</button>
-    <span>{{i}}</span> - {{ post.title }}
+      class="btn btn-primary">Delete</button>
+      <button
+        (click)="updatePost(post)"
+        class="btn btn-danger">Update</button>
+    <span>{{i+1}}</span> - {{ post.title }}
   </li>
 </ul>
