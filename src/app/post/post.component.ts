@@ -28,14 +28,14 @@ export class PostsComponent implements OnInit {
       .subscribe(
         newPost => {
           post['id'] = newPost.id;
-            this.posts.splice(0, 0, post);
-          },
-          (error: AppError) => {
-            if (error instanceof BadInput) {
-              // this.form.setErrors(error.originalError);
-            }
-            else throw error;
-          });
+          this.posts.splice(0, 0, post);
+        },
+        (error: AppError) => {
+          if (error instanceof BadInput) {
+            // this.form.setErrors(error.originalError);
+          }
+          else throw error;
+        });
   }
 
   updatePost(post) {

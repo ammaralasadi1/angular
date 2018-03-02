@@ -1,9 +1,9 @@
-import {CoursesComponent} from './courses.componenet';
-import {AuthorServiceService} from './author-service.service';
-import {CoursesService} from './cources.service';
+import { CoursesComponent } from './courses.componenet';
+import { AuthorServiceService } from './author-service.service';
+import { CoursesService } from './cources.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CourceComponent } from './cource/cource.component';
 import { FavoriteComponent } from './favorite/favorite.component';
@@ -13,6 +13,9 @@ import { LikeComponent } from './like/like.component';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { PostsComponent } from './post/post.component';
+import { StationsComponent } from './stations/stations.component';
+import { StationsService } from './stations.service';
+
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { PostsComponent } from './post/post.component';
     FavoriteComponent,
     PanelComponent,
     LikeComponent,
-    PostsComponent
+    PostsComponent,
+    StationsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { PostsComponent } from './post/post.component';
     CoursesService,
     AuthorServiceService,
     PostService,
-    {provide:ErrorHandler, useClass: AppErrorHandler}
+    StationsService,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
