@@ -1,3 +1,4 @@
+import { VotesService } from './votes.service';
 import { CoursesComponent } from './courses.componenet';
 import { AuthorServiceService } from './author-service.service';
 import { CoursesService } from './cources.service';
@@ -15,6 +16,7 @@ import { AppErrorHandler } from './common/app-error-handler';
 import { PostsComponent } from './post/post.component';
 import { StationsComponent } from './stations/stations.component';
 import { StationsService } from './stations.service';
+import { VotesComponent } from './votes/votes.component';
 
 
 
@@ -28,7 +30,8 @@ import { StationsService } from './stations.service';
     PanelComponent,
     LikeComponent,
     PostsComponent,
-    StationsComponent
+    StationsComponent,
+    VotesComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { StationsService } from './stations.service';
     AuthorServiceService,
     PostService,
     StationsService,
+    VotesService
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
